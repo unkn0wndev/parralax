@@ -1,38 +1,16 @@
-const verwerkScrollEvent = () => {
-    let scrollWaarde = this.pageYOffset;
-    console.log(scrollWaarde);
-    pasDeel2Aan(scrollWaarde);
-    pasDeel4Aan(scrollWaarde);
-    pasDeel6Aan(scrollWaarde);
-};
+var image = document.getElementsByClassName('thumbnail');
+var image2 = document.getElementsByClassName('thumbnail2');
+var image3 = document.getElementsByClassName('thumbnail3');
 
-window.addEventListener("scroll", verwerkScrollEvent);
+new simpleParallax(image, {
+	delay: .6,
+	transition: 'cubic-bezier(0,0,0,2)'
+});
 
-const pasDeel2Aan = (getal) => {
-    document.getElementsByClassName('deel--2')[0].style.backgroundPositionY = - getal/4 + 'px';
+new simpleParallax(image2, {
+	orientation: 'left'
+});
 
-    if(getal>500){
-        let tussenruimte = getal-500;
-        document.getElementsByClassName('deel__span--links')[0].style.marginLeft = -tussenruimte/2 + 'px';
-        document.getElementsByClassName('deel__span--rechts')[0].style.marginLeft = tussenruimte*2 + 'px';
-    }
-
-    if(getal>1600){
-        let tussenruimte = getal-1600;
-        document.getElementsByClassName('deel__span--rechts2')[0].style.marginLeft = tussenruimte/2 + 'px';
-    }
-
-    if(getal>2900){
-        let tussenruimte = getal-2900;
-
-
-    }
-};
-
-const pasDeel4Aan = (getal) => {
-    document.getElementsByClassName('deel--4')[0].style.backgroundPositionY = - getal/4 + 'px';
-};
-
-const pasDeel6Aan = (getal) => {
-    document.getElementsByClassName('deel--6')[0].style.backgroundPositionY = - getal/4 + 'px';
-};
+new simpleParallax(image3, {
+	orientation: 'right'
+});
